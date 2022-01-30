@@ -1,16 +1,32 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import React, { ReactElement } from "react";
+import { ButtonContainer, ButtonText } from "./styles";
 
-export interface IButtonProps {}
+export interface IButtonProps {
+  type?: string;
+  title?: string;
+  onPress: () => any;
+  color?: string;
+}
 
-const Button = () => {
+const Button = ({
+  type,
+  title,
+  onPress,
+  color,
+}: IButtonProps): ReactElement => {
   return (
-    <View>
-      <Text>Eu sou um botao</Text>
-    </View>
+    <>
+      <ButtonContainer color={color || "#222"} onPress={onPress}>
+        <ButtonText>{title}</ButtonText>
+      </ButtonContainer>
+    </>
   );
 };
 
 export default Button;
 
-Button.defaultProps = {};
+Button.defaultProps = {
+  title: "",
+  // color: "#222",
+};

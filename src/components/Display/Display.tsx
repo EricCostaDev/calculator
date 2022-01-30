@@ -1,13 +1,24 @@
 import { View, Text } from "react-native";
 import React from "react";
+import {
+  DisplayContainer,
+  DisplayContentContainer,
+  DisplayContent,
+} from "./styles";
 
-export interface IDispalyProps {}
+export interface IDispalyProps {
+  content: string;
+}
 
-const Display = () => {
+const Display = ({ content }: IDispalyProps) => {
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <>
+      <DisplayContainer>
+        <DisplayContentContainer>
+          <DisplayContent>{content}</DisplayContent>
+        </DisplayContentContainer>
+      </DisplayContainer>
+    </>
   );
 };
 
